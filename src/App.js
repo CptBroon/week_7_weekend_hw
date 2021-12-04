@@ -1,8 +1,8 @@
-import logo from './logo.svg';
 import './App.css';
+import AppContainer from './containers/AppContainer';
 
 function App() {
-  return <p>hi</p>
+  return <AppContainer/>
 }
 
 export default App;
