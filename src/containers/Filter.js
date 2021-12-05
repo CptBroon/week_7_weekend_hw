@@ -1,8 +1,6 @@
 const Filter = ( {setFilteredList, allHeroes} ) => {
 
     const handleButtonClick = (e) => {
-        let filterType = "";
-        let filterValue = "";
         const filteredList = [];
         if (e.target.parentElement.id === "attribute-filter") {
             allHeroes.forEach(hero => {
@@ -12,27 +10,44 @@ const Filter = ( {setFilteredList, allHeroes} ) => {
             });
         } else if (e.target.parentElement.id === "attack-type-filter") {
             allHeroes.forEach(hero => {
-                if (hero.attack_type == e.target.textContent) {
+                if (hero.attack_type === e.target.textContent) {
                     filteredList.push(hero);
                 }
             });
         } else {
             allHeroes.forEach(hero => {
-                if (hero.localized_name[0] == e.target.textContent) {
+                if (hero.localized_name[0] === e.target.textContent) {
                     filteredList.push(hero);
                 }
             });
         }
         setFilteredList(filteredList)
+        document.getElementById("remove-filter-button").style.display = "block"
+    }
+
+    const showHideFilter = () => {
+        if (document.getElementById("filter-options").style.display == "none") {
+            document.getElementById("filter-options").style.display = "flex"
+        } else {
+            document.getElementById("filter-options").style.display = "none"
+        }
+    }
+
+    const removeFilter = () => {
+        setFilteredList(allHeroes)
+        document.getElementById("remove-filter-button").style.display = "none"
     }
 
     return (
         <>
-            <h2>Filter by:</h2>
-            <div id="filter-options" className="flex-row">
+            <div id="filter-options-buttons" className="flex-row">
+                <button className="filter-options-button" onClick={showHideFilter}>Show/Hide filter options</button>
+                <button id="remove-filter-button" onClick={removeFilter} className="filter-options-button" style={{display: "none"}}>Remove current filter</button>
+            </div>
+            <div id="filter-options" className="flex-row" style={{display: "none"}}>
                 <div id="attribute-section">
                     <h3>Main attribute</h3>
-                    <div id="attribute-filter">
+                    <div id="attribute-filter" className="flex-row">
                         <button onClick={handleButtonClick} value="str">Strength</button>
                         <button onClick={handleButtonClick} value="agi">Agility</button>
                         <button onClick={handleButtonClick} value="int">Intelligence</button>
@@ -40,7 +55,7 @@ const Filter = ( {setFilteredList, allHeroes} ) => {
                 </div>
                 <div id="attack-type-section">
                     <h3>Attack type</h3>
-                    <div id="attack-type-filter">
+                    <div id="attack-type-filter" className="flex-row">
                         <button onClick={handleButtonClick}>Melee</button>
                         <button onClick={handleButtonClick}>Ranged</button>
                     </div>

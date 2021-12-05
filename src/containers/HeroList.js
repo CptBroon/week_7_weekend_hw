@@ -1,9 +1,9 @@
 import HeroListItem from "../components/HeroListItem";
 
-const HeroList = ( {heroList, setSelectedHero} ) => {
+const HeroList = ( {heroList, setSelectedHero, findHero} ) => {
 
     const handleHeroClick = (e) => {
-        setSelectedHero(e.target.textContent);
+        findHero(e.target.textContent);
     }
 
     const generateHeroList = heroList.map((hero, index) => {

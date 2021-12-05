@@ -33,17 +33,28 @@ const AppContainer = () => {
         }
     });
 
+    const findHero = (heroName) => {
+        const hero = allHeroes.find(hero => hero.localized_name === heroName)
+        setSelectedHero(hero);
+    }
+
     return (
         <>
             <header>
-                <h1>Dota Heroes</h1>
+                <img id="logo" src={"dota2logo.png"}/>
+                <h1>HEROES</h1>
             </header>
             <Filter setFilteredList={setFilteredList} allHeroes={allHeroes}/>
             <div id="list-and-profile" className="flex-row">
-                <HeroList heroList={filteredList} setSelectedHero={setSelectedHero} selectedHero={selectedHero} />
-                <h3 id="hero-profile">Hero profile</h3>
+                <HeroList heroList={filteredList} setSelectedHero={setSelectedHero} selectedHero={selectedHero} findHero={findHero} />
+                <div id="hero-profile-container" className="flex-column">
+                    <h3 id="hero-profile">Hero profile</h3>
+                    <HeroProfile selectedHero={selectedHero}/>
+                </div>
             </div>
-            
+            <footer>
+                Created by Graeme B
+            </footer>
         </>
     )
 }
