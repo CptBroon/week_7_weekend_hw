@@ -1,5 +1,4 @@
 const HeroListItem = ( {hero, handleHeroClick} ) => {
-    
     return <li onClick={handleHeroClick}>{hero.localized_name}</li>
 }
 

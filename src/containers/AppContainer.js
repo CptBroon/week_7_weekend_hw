@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import HeroList from "./HeroList";
 import Filter from "./Filter";
+import HeroProfile from "../components/HeroProfile";
 
 const AppContainer = () => {
 
