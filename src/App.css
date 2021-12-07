@@ -170,3 +170,14 @@ footer {
 #filter-options-buttons {
   margin: 1rem 0;
 }
+
+#scroll-to-top {
+  position: fixed;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.3);
+  bottom: 10rem;
+  right: 6rem;
+  width: 7rem;
+  border-radius: 30%;
+  padding: 2rem;
+}

@@ -26,7 +26,7 @@ const Filter = ( {setFilteredList, allHeroes} ) => {
     }
 
     const showHideFilter = () => {
-        if (document.getElementById("filter-options").style.display == "none") {
+        if (document.getElementById("filter-options").style.display === "none") {
             document.getElementById("filter-options").style.display = "flex"
         } else {
             document.getElementById("filter-options").style.display = "none"
