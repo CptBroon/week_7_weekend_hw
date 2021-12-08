@@ -60,15 +60,17 @@ const AppContainer = () => {
                 <img alt="Dota 2" id="logo" src={"dota2logo.png"}/>
                 <h1>HEROES</h1>
             </header>
-            <Filter setFilteredList={setFilteredList} allHeroes={allHeroes}/>
-            <div id="list-and-profile" className="flex-row">
-                <HeroList heroList={filteredList} setSelectedHero={setSelectedHero} selectedHero={selectedHero} findHero={findHero} />
-                <div id="hero-profile-container" className="flex-column">
-                    <h3 id="hero-profile">Hero profile</h3>
-                    <HeroProfile selectedHero={selectedHero}/>
+            <article>
+                <Filter setFilteredList={setFilteredList} allHeroes={allHeroes}/>
+                <div id="list-and-profile" className="flex-row">
+                    <HeroList heroList={filteredList} setSelectedHero={setSelectedHero} selectedHero={selectedHero} findHero={findHero} />
+                    <div id="hero-profile-container" className="flex-column">
+                        <h3 id="hero-profile">Hero profile</h3>
+                        <HeroProfile selectedHero={selectedHero}/>
+                    </div>
                 </div>
-            </div>
-            <button id="scroll-to-top" onClick={scrollToTop} style={{display: "none"}}>&uarr;</button>
+                <button id="scroll-to-top" onClick={scrollToTop} style={{display: "none"}}>&uarr;</button>
+            </article>
             <footer>
                 Created by Graeme B
             </footer>

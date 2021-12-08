@@ -1,7 +1,13 @@
 body {
   font-size: 20pt;
   background-image: linear-gradient(to right, #fe0000ea, #7e0701ea);
-  color: white
+  color: white;
+}
+
+#root {
+  display:flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 @font-face {
@@ -157,6 +163,7 @@ header, footer {
 
 footer {
   height: 8rem;
+  margin-top: auto;
   display: flex;
   justify-content: center;
   align-items: center;
