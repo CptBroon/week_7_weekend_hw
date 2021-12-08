@@ -39,7 +39,6 @@ const AppContainer = () => {
     }
 
     const scrollToTop = () => {
-        // document.documentElement.scrollTop = 0;
         window.scroll({
             top: 0,
             behavior: "smooth"
@@ -47,7 +46,7 @@ const AppContainer = () => {
     };
 
     document.onscroll = () => {
-        if (document.documentElement.scrollTop > 500) {
+        if (document.documentElement.scrollTop > 300) {
             document.getElementById("scroll-to-top").style.display = "block";
         } else {
             document.getElementById("scroll-to-top").style.display = "none";
