@@ -39,11 +39,15 @@ const AppContainer = () => {
     }
 
     const scrollToTop = () => {
-        document.documentElement.scrollTop = 0;
+        // document.documentElement.scrollTop = 0;
+        window.scroll({
+            top: 0,
+            behavior: "smooth"
+        })
     };
 
     document.onscroll = () => {
-        if (document.documentElement.scrollTop > 800) {
+        if (document.documentElement.scrollTop > 500) {
             document.getElementById("scroll-to-top").style.display = "block";
         } else {
             document.getElementById("scroll-to-top").style.display = "none";
