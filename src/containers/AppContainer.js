@@ -2,12 +2,25 @@ import { useEffect, useState } from "react";
 import HeroList from "./HeroList";
 import Filter from "./Filter";
 import HeroProfile from "../components/HeroProfile";
+import PopupAd from "../components/PopupAd";
 
 const AppContainer = () => {
 
     const [allHeroes, setAllHeroes] = useState([]);
     const [selectedHero, setSelectedHero] = useState(null);
     const [filteredList, setFilteredList] = useState([]);
+    const [showPopup, setShowPopup] = useState(false);
+
+
+    const popUp = () => {
+        if (!showPopup) {
+            setShowPopup(true);
+        }
+    }
+
+    const hidePopup = () => {
+        setShowPopup(false);
+    }
 
     useEffect(() => {
         fetch("https://api.opendota.com/api/heroes")
@@ -17,6 +30,7 @@ const AppContainer = () => {
                 setAllHeroes(heroes)
             }
         );
+        setTimeout(() => {popUp()}, 5000);
     }, [])
 
     useEffect(() => {
@@ -55,6 +69,7 @@ const AppContainer = () => {
 
     return (
         <>
+            {showPopup && <PopupAd hidePopup={hidePopup} />}
             <header>
                 <img alt="Dota 2" id="logo" src={"dota2logo.png"}/>
                 <h1>HEROES</h1>
